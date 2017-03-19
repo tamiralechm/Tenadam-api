@@ -44,31 +44,31 @@ var debug=require('debug')('patients controller');
 //     });
 // };
 
-// /**
-//  * Get patient
-//  */
-// exports.getpatient = function getpatient(req, res, next) {
-//   debug('getting a patient:',req.params._id);
+/**
+ * Get patient
+ */
+exports.getpatient = function getpatient(req, res, next) {
+  debug('getting a patient:',req.params._id);
 
-// var patientId=req.params.patientId;
-//   patientDal.get(patientId, function cb(err, patient) {
-//     if (err) {
-//       return next(err);
-//     }
-//       if (patient) {
-//       res.json(patient);
+var patientId=req.params.patientId;
+  patientDal.get(patientId, function cb(err, patient) {
+    if (err) {
+      return next(err);
+    }
+      if (patient) {
+      res.json(patient);
 
-//     } else {
-//       res.status(404);
-//       res.json({
-//         error: true,
-//         message: 'patient Not Found!',
-//         status: 404
-//       });
+    } else {
+      res.status(404);
+      res.json({
+        error: true,
+        message: 'patient Not Found!',
+        status: 404
+      });
 
-//     }
-//    });
-// };
+    }
+   });
+};
 
 
 // /**
